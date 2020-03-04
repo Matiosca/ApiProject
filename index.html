@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>RAWG API</title>
+		<!-- FONTAWESOME -->
+		<script
+			src="https://kit.fontawesome.com/4c7b3d1262.js"
+			crossorigin="anonymous"
+		></script>
+		<!-- css -->
+		<link rel="stylesheet" href="style.css" />
+		<!-- jQuery -->
+		<script
+		src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+		crossorigin="anonymous"></script>
+		<!-- moment js -->
+		<script src="moment.js"></script>
+	</head>
+	<body>
+		<div class="top-bar">
+			<nav>
+				<ul class="nav-ul">
+					<li id="navLiRated" class="nav-li">top rated&nbsp;&nbsp;<i class="fas fa-angle-down"></i>
+						<ul class="nav-ul-nested ul-rated">
+							<li class="nav-li-nested">
+								<input type="radio" id="ratedWeekly" name="TimeFrame" value="weekly" onchange="handleChange()" checked>
+								<label for="ratedWeekly">last week</label>
+							</li>
+							<li class="nav-li-nested">
+								<input type="radio" id="ratedMonthly" name="TimeFrame" value="monthly" onchange="handleChange()">
+								<label for="ratedMonthly">last month</label>
+							</li>
+							<li class="nav-li-nested">
+								<input type="radio" id="ratedYearly" name="TimeFrame" value="yearly" onchange="handleChange()">
+								<label for="ratedYearly">last year</label>
+							</li>
+						</ul>
+					</li>
+
+					<li id="navLiPop" class="nav-li">top popular&nbsp;&nbsp;<i class="fas fa-angle-down"></i>
+						<ul class="nav-ul-nested ul-pop">
+							<li class="nav-li-nested">
+								<input type="radio" id="popWeekly" name="TimeFrame" value="weekly" onchange="handleChange()">
+								<label for="popWeekly">last week</label>
+							</li>
+							<li class="nav-li-nested">
+								<input type="radio" id="popMonthly" name="TimeFrame" value="monthly" onchange="handleChange()">
+								<label for="popMonthly">last month</label>
+							</li>
+							<li class="nav-li-nested">
+								<input type="radio" id="popYearly" name="TimeFrame" value="yearly" onchange="handleChange()">
+								<label for="popYearly">last year</label>
+							</li>
+						</ul>
+					</li>
+					<li id="navLiReleased" class="nav-li">best of year&nbsp;&nbsp;<i class="fas fa-angle-down"></i>
+						<ul class="nav-ul-nested ul-watched">
+							<li class="nav-li-nested">
+								<input type="radio" id="best2016" name="TimeFrame" value="weekly" onchange="handleChange()">
+								<label for="best2016">2016</label>
+							</li>
+							<li class="nav-li-nested">
+								<input type="radio" id="best2012" name="TimeFrame" value="monthly" onchange="handleChange()">
+								<label for="best2012">2012</label>
+							</li>
+							<li class="nav-li-nested">
+								<input type="radio" id="best2008" name="TimeFrame" value="yearly" onchange="handleChange()">
+								<label for="best2008">2008</label>
+							</li>
+						</ul>
+					</li>
+				</li>
+			</nav>
+			<!--
+			<input class="search-bar" type="text" placeholder="Search game..." />
+			-->
+		</div>
+
+		<div class="content">
+			<div class="top-category">
+				<h2 class="h2-top-cat">
+					<span id="span-category" class="span-category"></span> <span id="span-timeframe" class="span-timeframe"></span>
+				</h2>
+					<ul id="top5ul" class="top5-ul">
+						<li id="topLi1" class="top5-li first-li"></li>
+						<li id="topLi2" class="top5-li second-li"></li>
+						<li id="topLi3" class="top5-li third-li"></li>
+						<li id="topLi4" class="top5-li fourth-li"></li>
+						<li id="topLi5" class="top5-li fifth-li"></li>
+					</ul>
+			</div>
+			<div class="img-videogame">
+				<img src="" alt="" id="top5Img" class="top5-img">
+				<h2 class="h2-image"></h2>
+				<p class="platforms">ps4 xbox</p>
+			</div>
+		</div>
+		<!-- js -->
+		<script src="script.js"></script>
+	</body>
+</html>
