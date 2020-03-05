@@ -8,3 +8,5 @@ Built so it never reloads the browser, it only starts a new API call with differ
 I'm looking for a way to improve javascript code [starting line :143 ending :252] because the only way to have the App work as intended
 had me repeat almost identical code over and over.
 ^code is commented to give a better insight to my decisions
+
+nav 'hover to expand' not working on microsoft edge at the moment.
