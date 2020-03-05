@@ -1,5 +1,7 @@
 # ApiProject
-Project to display best rated games by category. Made using RAWG APIs https://matiosca.github.io/ApiProject/
+Project to display best rated games by category. Made using RAWG APIs 
+
+Hosted at: https://matiosca.github.io/ApiProject/
 
 Built so it never reloads the browser, it only starts a new API call with different parameters.
 
