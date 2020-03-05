@@ -79,6 +79,13 @@ ul {
 	display: block;
 }
 
+/* style to enable nav expand on hover in EDGE */
+.nav-li.focus-within > ul {
+	visibility: visible;
+	opacity: 1;
+	display: block;
+}
+
 .nav-li-nested {
 	clear: both;
 	width: 100%;
