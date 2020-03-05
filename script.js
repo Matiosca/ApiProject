@@ -51,9 +51,10 @@ var spanCategory = document.getElementById('span-category');
 // variables for callAPI()
 var ulTop = document.getElementById('top5ul');
 // because topRatedWeek is checked by default
+/*
 var timeframe = lastWeek;
 var sorting = ratedCat;
-
+*/
 // change span category and add class active to nav-li
 function activeCategory() {
 	if (topRatedWeek.checked || topRatedMonth.checked || topRatedYear.checked) {
@@ -125,38 +126,172 @@ function forLoopAPI() {
 }
 
 //interrogate API
-
+/*
 function callAPI() {
 	$.getJSON(
 		'https://api.rawg.io/api/games?dates=' + timeframe + sorting,
 		function(data) {
 			for (var i = 0; i <= 4; i++) {
 				liTop = document.getElementsByClassName('top5-li');
-				//ulTop.removeChild(ulTop[i]);
-				//var liTop = document.createElement('li');
-				//ulTop.appendChild(liTop);
 
 				liTop[i].innerHTML = data.results[i].name;
 			}
-			displayDet();
+			var x = 0;
+			getDetails()
+			var gameImage = data.results[x].background_image;
+			var gameTitle = data.results[x].name;
+			$('#top5Img').attr('src', gameImage);
+			$('.h2-image').append(gameTitle);
+			var secondLi = document.getElementById('topLi2');
+
+			secondLi.addEventListener('click', function() {
+				x = 1;
+				callAPI();
+			});
 		}
 	);
 }
 callAPI();
 
-function displayDet() {
-	var x = 0;
-	var gameImage = data.results[x].background_image;
-	var gameTitle = data.results[x].name;
-	$('#top5Img').attr('src', gameImage);
-	$('.h2-image').append(gameTitle);
-	var secondLi = document.getElementById('topLi2');
+function getDetails() {
+	if ()
+}
+*/
+/*
+var apiData = {
+	url: 'https://api.rawg.io/api/games?dates=',
+	timeframe: lastYear,
+	sorting: popCat
+};
 
+var { url, timeframe, sorting } = apiData;
+var apiUrl = `${url}${timeframe}${sorting}`;
+*/
+var apiData = 'https://api.rawg.io/api/games?dates=';
+/*
+var timeframe = lastWeek;
+var sorting = ratedCat;
+*/
+
+function callAPI() {
+	var apiUrl = `${apiData}${timeframe}${sorting}`;
+	fetch(apiUrl)
+		.then(data => data.json())
+		.then(results => generateTop5(results));
+}
+
+callAPI();
+
+const generateTop5 = data => {
+	var gameName = document.getElementById('h2Image');
+	var gamePic = document.getElementById('top5Img');
+	var gamePlats = document.getElementById('platforms');
+
+	for (var i = 0; i <= 4; i++) {
+		liTop = document.getElementsByClassName('top5-li');
+
+		liTop[i].innerHTML = data.results[i].name;
+	}
+	x = 0;
+
+	gamePic.src = data.results[x].background_image;
+	gameName.innerHTML = data.results[x].name;
+	gamePlats = document.getElementById('platforms');
+
+	platformsList = data.results[x].platforms;
+	var platsList = '';
+
+	// iterate platforms array to display each available platform
+	for (plat of platformsList) {
+		platsList += plat.platform.name + '\xa0' + '\xa0' + '\xa0';
+		gamePlats.innerHTML = platsList;
+	}
+
+	var firstLi = document.getElementById('topLi1');
+	firstLi.addEventListener('click', function() {
+		x = 0;
+
+		gamePic.src = data.results[x].background_image;
+		gameName.innerHTML = data.results[x].name;
+		platformsList = data.results[x].platforms;
+
+		platsList = '';
+
+		// iterate platforms array to display each available platform
+		for (plat of platformsList) {
+			platsList += plat.platform.name + '\xa0' + '\xa0' + '\xa0';
+			gamePlats.innerHTML = platsList;
+		}
+	});
+
+	var secondLi = document.getElementById('topLi2');
 	secondLi.addEventListener('click', function() {
 		x = 1;
-		callAPI();
+
+		gamePic.src = data.results[x].background_image;
+		gameName.innerHTML = data.results[x].name;
+		platformsList = data.results[x].platforms;
+
+		platsList = '';
+
+		// iterate platforms array to display each available platform
+		for (plat of platformsList) {
+			platsList += plat.platform.name + '\xa0' + '\xa0' + '\xa0';
+			gamePlats.innerHTML = platsList;
+		}
 	});
-}
+
+	var thirdLi = document.getElementById('topLi3');
+	thirdLi.addEventListener('click', function() {
+		x = 2;
+
+		gamePic.src = data.results[x].background_image;
+		gameName.innerHTML = data.results[x].name;
+		platformsList = data.results[x].platforms;
+
+		platsList = '';
+
+		// iterate platforms array to display each available platform
+		for (plat of platformsList) {
+			platsList += plat.platform.name + '\xa0' + '\xa0' + '\xa0';
+			gamePlats.innerHTML = platsList;
+		}
+	});
+
+	var fourthLi = document.getElementById('topLi4');
+	fourthLi.addEventListener('click', function() {
+		x = 3;
+
+		gamePic.src = data.results[x].background_image;
+		gameName.innerHTML = data.results[x].name;
+		platformsList = data.results[x].platforms;
+
+		platsList = '';
+
+		// iterate platforms array to display each available platform
+		for (plat of platformsList) {
+			platsList += plat.platform.name + '\xa0' + '\xa0' + '\xa0';
+			gamePlats.innerHTML = platsList;
+		}
+	});
+
+	var fifthLi = document.getElementById('topLi5');
+	fifthLi.addEventListener('click', function() {
+		x = 4;
+
+		gamePic.src = data.results[x].background_image;
+		gameName.innerHTML = data.results[x].name;
+		platformsList = data.results[x].platforms;
+
+		platsList = '';
+
+		// iterate platforms array to display each available platform
+		for (plat of platformsList) {
+			platsList += plat.platform.name + '\xa0' + '\xa0' + '\xa0';
+			gamePlats.innerHTML = platsList;
+		}
+	});
+};
 
 // mergin functions for onChange event radio buttons
 function handleChange() {
