@@ -140,6 +140,9 @@ callAPI();
 // Here code is repeated several times because it was the only way I found to "overwrite" DOM elements each time
 // game gets clicked to display img etc [var x changes value]
 
+// example. without coding this way each time I was clicking on a new game title the platform field was displaying the available
+// plats for the just clicked game but also keeping the old ones
+
 const generateTop5 = data => {
 	var gameName = document.getElementById('h2Image');
 	var gamePic = document.getElementById('top5Img');
