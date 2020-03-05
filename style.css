@@ -24,6 +24,7 @@ body {
 .title-top {
 	text-transform: uppercase;
 	font-size: 28px;
+	text-align: center;
 }
 
 .title-a {
@@ -238,4 +239,127 @@ label:hover {
 	text-align: center;
 	width: 90%;
 	line-height: 40px;
+}
+
+@media only screen and (max-width: 1400px) {
+	.top-bar {
+		height: 20vh;
+		width: 100%;
+	}
+
+	.title-top {
+		margin-left: 20px;
+	}
+
+	.content {
+		width: 100%;
+		flex-direction: column;
+	}
+	.top-category,
+	.img-videogame {
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 1200px) {
+	.title-top {
+		margin: 0 auto;
+	}
+
+	.line {
+		width: 30px;
+		height: 3px;
+		background: #ffffff;
+		margin: 5px;
+		transition: all 0.3s ease;
+	}
+
+	/* line form X when rotating */
+	.line:nth-child(1).rotate {
+		transform: rotate(-45deg) translate(-5px, 6px);
+	}
+	.line:nth-child(2).rotate {
+		opacity: 0;
+	}
+	.line:nth-child(3).rotate {
+		transform: rotate(45deg) translate(-5px, -6px);
+	}
+
+	.nav-ul {
+		z-index: 3;
+		overflow: hidden;
+		position: fixed;
+		top: 0;
+		right: -400px;
+		background: #272849;
+		border-left: 1px solid #a0a0a0;
+		height: 100%;
+		width: 400px;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+		transition: all 0.5s ease-out;
+	}
+
+	.nav-ul.open {
+		transform: translateX(-400px);
+	}
+
+	.nav-li:first-child {
+		margin-top: 50px;
+	}
+
+	.nav-li:nth-child(2),
+	.nav-li:nth-child(3) {
+		margin-top: 200px;
+	}
+
+	.hamburger {
+		position: fixed;
+		z-index: 3;
+		cursor: pointer;
+		top: 50px;
+		right: 100px;
+		transition: all 0.5s ease 0.2s;
+	}
+
+	.hamburger.rotate {
+		right: 40px;
+	}
+}
+
+@media only screen and (max-width: 900px) {
+	.hamburger {
+		right: 40px;
+	}
+
+	.h2-top-cat {
+		font-size: 28px;
+	}
+
+	.top5-img {
+		width: 500px;
+		height: 300px;
+	}
+}
+
+@media only screen and (max-width: 700px) {
+	.title-top {
+		width: 500px;
+		margin: 0 40px 0 0;
+	}
+}
+
+@media only screen and (max-width: 550px) {
+	.top5-img {
+		width: 350px;
+		height: 250px;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.h2-top-cat {
+		font-size: 26px;
+	}
 }

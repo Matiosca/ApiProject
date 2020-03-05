@@ -1,3 +1,20 @@
+// hamburger menu
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-ul');
+const links = document.querySelectorAll('.nav-li');
+const lines = document.querySelectorAll('.line');
+
+hamburger.addEventListener('click', () => {
+	navLinks.classList.toggle('open');
+	hamburger.classList.toggle('rotate');
+	links.forEach(links => {
+		links.classList.toggle('fade');
+	});
+	lines.forEach(lines => {
+		lines.classList.toggle('rotate');
+	});
+});
+
 // creating var for today date, last week, last month etc
 var todayDate = moment().format('YYYY-MM-DD');
 var weekAgoDate = moment()
@@ -125,7 +142,6 @@ function forLoopAPI() {
 	}
 }
 
-//interrogate API
 /*
 function callAPI() {
 	$.getJSON(
@@ -167,11 +183,14 @@ var apiData = {
 var { url, timeframe, sorting } = apiData;
 var apiUrl = `${url}${timeframe}${sorting}`;
 */
-var apiData = 'https://api.rawg.io/api/games?dates=';
+
 /*
 var timeframe = lastWeek;
 var sorting = ratedCat;
 */
+
+//interrogate API
+var apiData = 'https://api.rawg.io/api/games?dates=';
 
 function callAPI() {
 	var apiUrl = `${apiData}${timeframe}${sorting}`;
