@@ -231,6 +231,10 @@ label:hover {
 	align-items: center;
 }
 
+.h2-image {
+	text-align: center;
+}
+
 .top5-img {
 	width: 600px;
 	height: 400px;
