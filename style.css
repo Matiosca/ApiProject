@@ -200,6 +200,7 @@ label:hover {
 	margin: 0px auto 50px auto;
 	font-size: 20px;
 	width: fit-content;
+	width: -moz-fit-content;
 	cursor: pointer;
 }
 
