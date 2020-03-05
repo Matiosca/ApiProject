@@ -39,11 +39,8 @@ var year2008 = '2008-01-01,2008-12-31';
 // category var for API calls
 var ratedCat = '&ordering=-rating';
 var popCat = '&ordering=-added';
-// platform for released 4=PC 1=Xone 18=PS4 7=Nswitch
-//var releasedCat = '&platforms=4';
-//var releasedCat = '&platforms=4,1,18,7';
 
-// assign var to nav-li (to add and remove class .active)
+// assign var to nav-li (to add and remove class .active [border-bottom])
 var liRated = document.getElementById('navLiRated');
 var liPop = document.getElementById('navLiPop');
 var liReleased = document.getElementById('navLiReleased');
@@ -67,11 +64,7 @@ var spanCategory = document.getElementById('span-category');
 
 // variables for callAPI()
 var ulTop = document.getElementById('top5ul');
-// because topRatedWeek is checked by default
-/*
-var timeframe = lastWeek;
-var sorting = ratedCat;
-*/
+
 // change span category and add class active to nav-li
 function activeCategory() {
 	if (topRatedWeek.checked || topRatedMonth.checked || topRatedYear.checked) {
@@ -98,10 +91,10 @@ function activeCategory() {
 	}
 }
 
-// executing function so js recognizes toRatedWeek RADIO is checked by default
+// executing function so js recognizes topRatedWeek RADIO is checked by default
 activeCategory();
 
-// change span timeframe
+// change span DOM timeframe
 function activeTimeframe() {
 	if (topRatedWeek.checked || topPopWeek.checked) {
 		timeframe = lastWeek;
@@ -129,65 +122,8 @@ function activeTimeframe() {
 		spanTimeframe.innerHTML = 'in 2008';
 	}
 }
-
+// executing function so js recognizes topRatedWeek RADIO is checked by default
 activeTimeframe();
-
-// for loop API
-function forLoopAPI() {
-	for (var i = 0; i <= 4; i++) {
-		var liTop = document.createElement('li');
-		ulTop.appendChild(liTop);
-
-		liTop.innerHTML = i + 1 + ' ' + data.results[i].name;
-	}
-}
-
-/*
-function callAPI() {
-	$.getJSON(
-		'https://api.rawg.io/api/games?dates=' + timeframe + sorting,
-		function(data) {
-			for (var i = 0; i <= 4; i++) {
-				liTop = document.getElementsByClassName('top5-li');
-
-				liTop[i].innerHTML = data.results[i].name;
-			}
-			var x = 0;
-			getDetails()
-			var gameImage = data.results[x].background_image;
-			var gameTitle = data.results[x].name;
-			$('#top5Img').attr('src', gameImage);
-			$('.h2-image').append(gameTitle);
-			var secondLi = document.getElementById('topLi2');
-
-			secondLi.addEventListener('click', function() {
-				x = 1;
-				callAPI();
-			});
-		}
-	);
-}
-callAPI();
-
-function getDetails() {
-	if ()
-}
-*/
-/*
-var apiData = {
-	url: 'https://api.rawg.io/api/games?dates=',
-	timeframe: lastYear,
-	sorting: popCat
-};
-
-var { url, timeframe, sorting } = apiData;
-var apiUrl = `${url}${timeframe}${sorting}`;
-*/
-
-/*
-var timeframe = lastWeek;
-var sorting = ratedCat;
-*/
 
 //interrogate API
 var apiData = 'https://api.rawg.io/api/games?dates=';
@@ -200,6 +136,9 @@ function callAPI() {
 }
 
 callAPI();
+
+// Here code is repeated several times because it was the only way I found to "overwrite" DOM elements each time
+// game gets clicked to display img etc [var x changes value]
 
 const generateTop5 = data => {
 	var gameName = document.getElementById('h2Image');
@@ -218,7 +157,7 @@ const generateTop5 = data => {
 	gamePlats = document.getElementById('platforms');
 
 	platformsList = data.results[x].platforms;
-	var platsList = '';
+	var platsList = ''; // each time emptying variable so old game platforms are deleted
 
 	// iterate platforms array to display each available platform
 	for (plat of platformsList) {
@@ -312,9 +251,56 @@ const generateTop5 = data => {
 	});
 };
 
-// mergin functions for onChange event radio buttons
+// merging functions for onChange event radio buttons
 function handleChange() {
 	activeCategory();
 	activeTimeframe();
 	callAPI();
 }
+
+/* USED ANOTHER WAY IN THE END BUT KEEPING FOR FUTURE REFERENCE
+function callAPI() {
+	$.getJSON(
+		'https://api.rawg.io/api/games?dates=' + timeframe + sorting,
+		function(data) {
+			for (var i = 0; i <= 4; i++) {
+				liTop = document.getElementsByClassName('top5-li');
+
+				liTop[i].innerHTML = data.results[i].name;
+			}
+			var x = 0;
+			getDetails()
+			var gameImage = data.results[x].background_image;
+			var gameTitle = data.results[x].name;
+			$('#top5Img').attr('src', gameImage);
+			$('.h2-image').append(gameTitle);
+			var secondLi = document.getElementById('topLi2');
+
+			secondLi.addEventListener('click', function() {
+				x = 1;
+				callAPI();
+			});
+		}
+	);
+}
+callAPI();
+
+function getDetails() {
+	if ()
+}
+*/
+/*
+var apiData = {
+	url: 'https://api.rawg.io/api/games?dates=',
+	timeframe: lastYear,
+	sorting: popCat
+};
+
+var { url, timeframe, sorting } = apiData;
+var apiUrl = `${url}${timeframe}${sorting}`;
+*/
+
+/*
+var timeframe = lastWeek;
+var sorting = ratedCat;
+*/
