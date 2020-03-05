@@ -201,6 +201,7 @@ label:hover {
 	font-size: 20px;
 	width: fit-content;
 	width: -moz-fit-content;
+	display: table; /* for edge */
 	cursor: pointer;
 }
 
