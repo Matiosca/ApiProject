@@ -79,8 +79,10 @@ ul {
 	display: block;
 }
 
-/* style to enable nav expand on hover in EDGE */
-.nav-li.focus-within > ul {
+/* rewriting for EDGE compability */
+.nav-li:hover > ul,
+.nav-li.focus-within > ul,
+.nav-ul-nested:hover {
 	visibility: visible;
 	opacity: 1;
 	display: block;
