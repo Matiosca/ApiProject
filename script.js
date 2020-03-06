@@ -111,15 +111,15 @@ function activeTimeframe() {
 	} else if (best2016.checked) {
 		timeframe = year2016;
 
-		spanTimeframe.innerHTML = 'in 2016';
+		spanTimeframe.innerHTML = '2016';
 	} else if (best2012.checked) {
 		timeframe = year2012;
 
-		spanTimeframe.innerHTML = 'in 2012';
+		spanTimeframe.innerHTML = '2012';
 	} else if (best2008.checked) {
 		timeframe = year2008;
 
-		spanTimeframe.innerHTML = 'in 2008';
+		spanTimeframe.innerHTML = '2008';
 	}
 }
 // executing function so js recognizes topRatedWeek RADIO is checked by default
