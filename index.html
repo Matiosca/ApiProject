@@ -59,9 +59,9 @@
 					</li>
 					<li id="navLiReleased" class="nav-li">best of year&nbsp;&nbsp;<i class="fas fa-angle-down"></i>
 						<ul class="nav-ul-nested ul-watched">
-							<li class="nav-li-nested">
-								<input type="radio" id="best2016" name="TimeFrame" value="weekly" onchange="handleChange()">
-								<label for="best2016">2016</label>
+							<li class="nav-li-nested nav-li-input">
+								<input type="number" class="user-year" id="userYearInput" name="user-year-input" placeholder="1998">
+								<button onclick="sortByInput()"><i class="fa fa-search"></i></button>
 							</li>
 							<li class="nav-li-nested">
 								<input type="radio" id="best2012" name="TimeFrame" value="monthly" onchange="handleChange()">
@@ -81,9 +81,6 @@
 				<div class="line line2"></div>
 				<div class="line line3"></div>
 			</div>
-			<!--
-			<input class="search-bar" type="text" placeholder="Search game..." />
-			-->
 		</div>
 
 		<div class="content">

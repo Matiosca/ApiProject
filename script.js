@@ -54,7 +54,7 @@ var topPopWeek = document.getElementById('popWeekly');
 var topPopMonth = document.getElementById('popMonthly');
 var topPopYear = document.getElementById('popYearly');
 
-var best2016 = document.getElementById('best2016');
+var userYearInput = document.getElementById('userYearInput');
 var best2012 = document.getElementById('best2012');
 var best2008 = document.getElementById('best2008');
 
@@ -81,7 +81,7 @@ function activeCategory() {
 		liRated.classList.remove('active');
 		liPop.classList.add('active');
 		liReleased.classList.remove('active');
-	} else if (best2016.checked || best2012.checked || best2008.checked) {
+	} else if (best2012.checked || best2008.checked) {
 		sorting = popCat;
 
 		spanCategory.innerHTML = 'Best 5 videogames in';
@@ -108,22 +108,48 @@ function activeTimeframe() {
 		timeframe = lastYear;
 
 		spanTimeframe.innerHTML = 'last year';
-	} else if (best2016.checked) {
-		timeframe = year2016;
-
-		spanTimeframe.innerHTML = 'in 2016';
 	} else if (best2012.checked) {
 		timeframe = year2012;
 
-		spanTimeframe.innerHTML = 'in 2012';
+		spanTimeframe.innerHTML = '2012';
 	} else if (best2008.checked) {
 		timeframe = year2008;
 
-		spanTimeframe.innerHTML = 'in 2008';
+		spanTimeframe.innerHTML = '2008';
 	}
 }
 // executing function so js recognizes topRatedWeek RADIO is checked by default
 activeTimeframe();
+
+function sortByInput() {
+	if (userYearInput.value === '') {
+		alert('Please fill year field before searching');
+	} else if (userYearInput.value < 1976 || userYearInput.value > 2020) {
+		alert('Please choose an year between 1976 and 2020');
+	} else {
+		//unchecking all radio buttons
+		topRatedWeek.checked = false;
+		topRatedMonth.checked = false;
+		topRatedYear.checked = false;
+		topPopWeek.checked = false;
+		topPopMonth.checked = false;
+		topPopYear.checked = false;
+		best2012.checked = false;
+		best2008.checked = false;
+
+		timeframe = `${userYearInput.value}-01-01,${userYearInput.value}-12-31`;
+		sorting = popCat;
+
+		spanCategory.innerHTML = 'Best 5 videogames in';
+		liRated.classList.remove('active');
+		liPop.classList.remove('active');
+		liReleased.classList.add('active');
+
+		spanTimeframe.innerHTML = `${userYearInput.value}`;
+		callAPI();
+		userYearInput.value = '';
+	}
+}
 
 //interrogate API
 var apiData = 'https://api.rawg.io/api/games?dates=';
