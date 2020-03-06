@@ -396,6 +396,7 @@ input[type='number'] {
 
 	.hamburger.rotate {
 		right: 40px;
+		background-color: transparent;
 	}
 }
 
