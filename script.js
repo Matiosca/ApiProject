@@ -108,6 +108,13 @@ function activeTimeframe() {
 		timeframe = lastYear;
 
 		spanTimeframe.innerHTML = 'last year';
+<<<<<<< HEAD
+=======
+	} else if (best2016.checked) {
+		timeframe = year2016;
+
+		spanTimeframe.innerHTML = '2016';
+>>>>>>> 7e47f4241128bc6f1f5283d1d071b518a5b19371
 	} else if (best2012.checked) {
 		timeframe = year2012;
 
