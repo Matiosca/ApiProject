@@ -32,38 +32,38 @@ var lastWeek = weekAgoDate + ',' + todayDate; //es 2020-01-01,2020-01-08
 var lastMonth = monthAgoDate + ',' + todayDate;
 var lastYear = yearAgoDate + ',' + todayDate;
 // for year 2016 - 2012 - 2008
-var year2016 = '2016-01-01,2016-12-31';
-var year2012 = '2012-01-01,2012-12-31';
-var year2008 = '2008-01-01,2008-12-31';
+const year2016 = '2016-01-01,2016-12-31';
+const year2012 = '2012-01-01,2012-12-31';
+const year2008 = '2008-01-01,2008-12-31';
 
 // category var for API calls
-var ratedCat = '&ordering=-rating';
-var popCat = '&ordering=-added';
+const ratedCat = '&ordering=-rating';
+const popCat = '&ordering=-added';
 
 // assign var to nav-li (to add and remove class .active [border-bottom])
-var liRated = document.getElementById('navLiRated');
-var liPop = document.getElementById('navLiPop');
-var liReleased = document.getElementById('navLiReleased');
+const liRated = document.getElementById('navLiRated');
+const liPop = document.getElementById('navLiPop');
+const liReleased = document.getElementById('navLiReleased');
 
 // assign var to radio buttons
-var topRatedWeek = document.getElementById('ratedWeekly');
-var topRatedMonth = document.getElementById('ratedMonthly');
-var topRatedYear = document.getElementById('ratedYearly');
+const topRatedWeek = document.getElementById('ratedWeekly');
+const topRatedMonth = document.getElementById('ratedMonthly');
+const topRatedYear = document.getElementById('ratedYearly');
 
-var topPopWeek = document.getElementById('popWeekly');
-var topPopMonth = document.getElementById('popMonthly');
-var topPopYear = document.getElementById('popYearly');
+const topPopWeek = document.getElementById('popWeekly');
+const topPopMonth = document.getElementById('popMonthly');
+const topPopYear = document.getElementById('popYearly');
 
-var userYearInput = document.getElementById('userYearInput');
-var best2012 = document.getElementById('best2012');
-var best2008 = document.getElementById('best2008');
+const userYearInput = document.getElementById('userYearInput');
+const best2012 = document.getElementById('best2012');
+const best2008 = document.getElementById('best2008');
 
 // assign var to DOM elements
-var spanTimeframe = document.getElementById('span-timeframe');
-var spanCategory = document.getElementById('span-category');
+const spanTimeframe = document.getElementById('span-timeframe');
+const spanCategory = document.getElementById('span-category');
 
 // variables for callAPI()
-var ulTop = document.getElementById('top5ul');
+const ulTop = document.getElementById('top5ul');
 
 // change span category and add class active to nav-li
 function activeCategory() {
@@ -170,8 +170,8 @@ callAPI();
 // plats for the just clicked game but also keeping the old ones
 
 const generateTop5 = data => {
-	var gameName = document.getElementById('h2Image');
-	var gamePic = document.getElementById('top5Img');
+	const gameName = document.getElementById('h2Image');
+	const gamePic = document.getElementById('top5Img');
 	var gamePlats = document.getElementById('platforms');
 
 	for (var i = 0; i <= 4; i++) {
@@ -194,7 +194,7 @@ const generateTop5 = data => {
 		gamePlats.innerHTML = platsList;
 	}
 
-	var firstLi = document.getElementById('topLi1');
+	const firstLi = document.getElementById('topLi1');
 	firstLi.addEventListener('click', function() {
 		x = 0;
 
@@ -211,7 +211,7 @@ const generateTop5 = data => {
 		}
 	});
 
-	var secondLi = document.getElementById('topLi2');
+	const secondLi = document.getElementById('topLi2');
 	secondLi.addEventListener('click', function() {
 		x = 1;
 
@@ -228,7 +228,7 @@ const generateTop5 = data => {
 		}
 	});
 
-	var thirdLi = document.getElementById('topLi3');
+	const thirdLi = document.getElementById('topLi3');
 	thirdLi.addEventListener('click', function() {
 		x = 2;
 
@@ -245,7 +245,7 @@ const generateTop5 = data => {
 		}
 	});
 
-	var fourthLi = document.getElementById('topLi4');
+	const fourthLi = document.getElementById('topLi4');
 	fourthLi.addEventListener('click', function() {
 		x = 3;
 
@@ -262,7 +262,7 @@ const generateTop5 = data => {
 		}
 	});
 
-	var fifthLi = document.getElementById('topLi5');
+	const fifthLi = document.getElementById('topLi5');
 	fifthLi.addEventListener('click', function() {
 		x = 4;
 
